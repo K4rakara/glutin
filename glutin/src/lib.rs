@@ -337,6 +337,7 @@ impl CreationError {
                 "Couldn't find any pixel format that matches the criteria."
             }
             CreationError::PlatformSpecific(ref text) => &text,
+            #[allow(deprecated)]
             CreationError::Window(ref err) => std::error::Error::description(err),
             CreationError::CreationErrors(_) => "Received multiple errors.",
         }
@@ -398,6 +399,7 @@ impl ContextError {
         use std::error::Error;
         match *self {
             ContextError::OsError(ref string) => string,
+            #[allow(deprecated)]
             ContextError::IoError(ref err) => err.description(),
             ContextError::ContextLost => "Context lost",
             ContextError::FunctionUnavailable => "Function unavailable",

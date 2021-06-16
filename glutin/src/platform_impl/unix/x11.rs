@@ -35,6 +35,7 @@ impl std::error::Error for NoX11Connection {
 
 impl std::fmt::Display for NoX11Connection {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        #[allow(deprecated)]
         f.write_str(std::error::Error::description(self))
     }
 }
